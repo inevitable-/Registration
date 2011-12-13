@@ -2,6 +2,8 @@ package model;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RegistrationModel {
 
@@ -46,6 +48,19 @@ public class RegistrationModel {
     	
     	return hexString.toString();
 	}
+	
+	public boolean validateEmail(String email){
+		String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";  
+		CharSequence inputStr = email; 
+		boolean isValid = false;
+		//Make the comparison case-insensitive.  
+		Pattern pattern = Pattern.compile(expression,Pattern.CASE_INSENSITIVE);  
+		Matcher matcher = pattern.matcher(inputStr);  
+		if(matcher.matches()){  
+		isValid = true;  
+		}  
+		return isValid;  
+		}
 	
 	
 }

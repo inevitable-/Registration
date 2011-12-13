@@ -29,8 +29,10 @@
                         <tr>
                             <td><input class="form" type="password" name="password" value="Password" /></td>
                         </tr>
+                       
                         <tr>
-                            <td colspan="2"><input class="form" id="UserLogin" type="submit" value="Log In" /></td>
+                            <td colspan="2"><input class="form" id="UserLogin" type="submit" value="Log In" /> or
+                            <a href ="Registration.jsp">Sign Up</a></td>
                         </tr>
                     </table>
                 </form>

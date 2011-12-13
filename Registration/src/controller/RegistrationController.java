@@ -42,21 +42,30 @@ throws ServletException, IOException {
 		String lastname=request.getParameter("last_name");
 		String username= request.getParameter("username");
 		String password = hash.md5(request.getParameter("password"));
+		String retypepassword = hash.md5(request.getParameter("retypepassword"));
 		String email = request.getParameter("email");
 		String gender = request.getParameter("gender");
 		String middle_name=request.getParameter("middle_name");
 		boolean validate;
+		boolean validemail;
 	    int updateQuery;
 		
 		if(name != "" && lastname!="" &&username!="" && password !="" && 
 				 gender !="" &&  middle_name!="" &&  email!="" ){
 			
 			try {
-				
+						
 				Statement ps = query.createStatement();
 			    rs=ps.executeQuery(get.validate(username));
 			    validate=rs.next();
+			    validemail=get.validateEmail(email);
 			    
+			    if(!validemail){
+			    response.sendRedirect("http://localhost/Registration/views/Validateemail.jsp");
+			    }
+			    if(!password.equals(retypepassword)){
+			    response.sendRedirect("http://localhost/Registration/views/ValidatePass.jsp");
+			    }
 			    if(validate){
 			   response.sendRedirect("http://localhost/Registration/views/ValidateReg.jsp");
 			    }

@@ -4,20 +4,22 @@
  
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
     <head>
+    
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Register</title>
         <link rel="stylesheet" type="text/css" media="all" href="../styles/base.css" />
     </head>
     <body>
             <div id="header-container">
-                
                  <%@include  file="../defaults/navigation.html"%>
             </div>
         <div id="container" class="shadow">
             <div id="content">
-          <font color="red">Invalid username/fill all the fields.</font>
+        <font color="red">Invalid username/fill al the blanks.</font>
+      
                 <form action="../RegistrationController" method="post">
                
                 <table>
@@ -29,6 +31,12 @@
                         <td>Password</td>
                         <td><input type="password" name="password" /></td>
                     </tr>
+                    
+                     <tr>
+                        <td>Re-Type Password</td>
+                        <td><input type="password" name="retypepassword" /></td>
+                    </tr>
+                    
                     <tr>
                         <td>First Name</td>
                         <td><input type="text" name="first_name" /></td>
