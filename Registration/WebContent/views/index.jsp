@@ -29,7 +29,7 @@
                 <a href="members.jsp">Members</a> 
                 <div id="user-navigation">
                     <% 
-                    	out.println(String.format("Welcome %s", session.getAttribute("usernames"))); 
+                    	out.println(String.format("Welcome %s [%s]", session.getAttribute("usernames"), session.getAttribute("user_id"))); 
           			%> 	<a href="logout.jsp">Logout</a> 
                     		
                     	<% 
@@ -38,7 +38,7 @@
                     <a href="login.jsp">Login</a> or <a href="Registration.jsp">Sign up</a>                    
                     <% } %>
                 </div>
-               
+               </div>
             <div id="footer"></div>
         </div>
     </body>

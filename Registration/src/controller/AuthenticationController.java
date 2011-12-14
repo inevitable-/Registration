@@ -55,8 +55,15 @@ public class AuthenticationController extends HttpServlet {
 			out.println("Query Error");
 		}
 		
+		
 		if (login) {
 		    request.getSession().setAttribute("usernames", username);
+		    rs = DB.query("select * from user where username = '" + username + "'");
+		    try {
+				while(rs.next()){
+					request.getSession().setAttribute("user_id", rs.getString("user_id"));
+				}
+			} catch (Exception e) {}
 		    response.sendRedirect("views/index.jsp"); 
 		    
 		} else {
